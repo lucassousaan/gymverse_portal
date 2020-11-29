@@ -93,6 +93,7 @@ label {
 }
 
 input,
+select,
 textarea {
   border-radius: 4px;
   border: 1px solid white;
@@ -107,6 +108,8 @@ textarea {
 input:hover,
 textarea:hover,
 input:focus,
+select:focus,
+select:hover,
 textarea:focus {
   outline: none;
   box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);

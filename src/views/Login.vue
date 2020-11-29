@@ -6,7 +6,7 @@
       <input type="email" id="email" name="email" v-model="login.email" />
       <label for="senha">Senha</label>
       <input type="password" id="senha" name="senha" v-model="login.senha" />
-      <button class="btn" @click.prevent="logar">Entrar</button>
+      <button class="btn" to="/login" @click.prevent="logar">Entrar</button>
     </form>
     <p class="perdeu">
       <a href="/" target="_blank">Esqueceu a senha?</a>
@@ -34,6 +34,7 @@ export default {
   methods: {
     logar() {
       this.$store.dispatch("getUsuario", "1");
+      this.$router.push({ name: "dashboard" });
     },
   },
 };

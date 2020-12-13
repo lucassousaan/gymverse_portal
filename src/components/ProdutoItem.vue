@@ -1,11 +1,11 @@
 <template>
   <div class="produto" v-if="produto">
-    <router-link class="produto-img" to="/">
+    <router-link class="produto-img" :to="{name: 'produto', params: { id: produto.id }}">
       <img v-if="produto.imagem" :src="produto.imagem" :alt="produto.imagem" />
       <p>Ver Produto</p>
     </router-link>
     <div class="info">
-      <p class="preco">R$ {{ produto.preco }}</p>
+      <p class="preco">{{ produto.preco | numeroPreco }}</p>
       <h2 class="titulo">{{ produto.nome }}</h2>
       <slot></slot>
     </div>
@@ -30,6 +30,7 @@ export default {
 
 .info {
   align-self: end;
+  margin-top: 60px;
 }
 
 .produto-img {

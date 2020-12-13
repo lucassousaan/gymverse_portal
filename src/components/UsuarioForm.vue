@@ -14,8 +14,8 @@
     <input type="text" id="estado" name="estado" v-model="estado" />
     <label for="numero">Número</label>
     <input type="number" id="numero" name="numero" v-model="numero" />
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" name="senha" v-model="senha" />
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" v-model="senha" />
     <div class="button">
       <slot></slot>
     </div>
@@ -23,8 +23,39 @@
 </template>
 
 <script>
+import { mapFields } from "@/helpers.js";
+
 export default {
   name: "UsuarioForm",
+  computed: {
+    ...mapFields({
+      fields: [
+        "nome",
+        "email",
+        "cep",
+        "rua",
+        "cidade",
+        "estado",
+        "numero",
+        "senha",
+      ],
+      base: "usuario",
+      mutation: "UPDATE_USUARIO",
+    }),
+  },
+  methods: {
+    async atualizarUsuario() {
+      try {
+        await this.$store.dispatch("atualizarUsuario", this.$store.state.usuario);
+        await this.$store.dispatch(
+          "getUsuario",
+          this.$store.state.usuario.email
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  }
 };
 </script>
 

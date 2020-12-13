@@ -3,9 +3,18 @@
     <h1>Adicionar produto</h1>
     <ProdutosAdicionar />
     <h2>Todos os produtos</h2>
-
+    <download-excel
+    v-if="produtos"
+      class="btn"
+      :data="produtos"
+      :fields="json_fields"
+      worksheet="Relatorio Produtos Gymverse"
+      name="gymverse_report_produtcts.xls"
+    >
+      Extrair Relatório de Produtos
+    </download-excel>
     <transition-group v-if="produtos" name="list" tag="ul">
-      <li v-for="(produto, index) in produtos" :key="index">
+      <li class="li-class" v-for="produto in produtos" :key="produto.id">
         <ProdutoItem :produto="produto">
           <p>{{ produto.descricao }}</p>
           <button class="deletar" @click="deletarProduto(produto.id)">
@@ -31,6 +40,16 @@ export default {
   },
   computed: {
     ...mapState(["login", "usuario", "produtos"]),
+  },
+  data() {
+    return {
+      json_fields: {
+        Nome: "nome",
+        Preco: "preco",
+        "Quantidade disponível": "qtd",
+        Descrição: "descricao",
+      },
+    };
   },
   methods: {
     ...mapActions(["getProdutos"]),
@@ -77,6 +96,10 @@ h1 {
 
 h2 {
   margin-bottom: 20px;
+}
+
+.li-class {
+  margin-top: 20px;
 }
 
 .list-enter .list-leave-to {

@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     logar() {
-      this.$store.dispatch("getUsuario", "1");
+      this.$store.dispatch("getUsuario", this.login.email);
       this.$router.push({ name: "dashboard" });
     },
   },

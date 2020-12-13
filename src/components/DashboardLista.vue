@@ -24,31 +24,17 @@
           </router-link>
         </div>
         <div class="dashboard">
-          <router-link to="/">
+          <router-link to="/cadastro-plano">
             <img src="@/assets/plans.svg" alt="Register User" />
             <h2 class="titulo">Cadastrar Planos</h2>
             <p>Realizar um novo cadastro de planos</p>
           </router-link>
         </div>
         <div class="dashboard">
-          <router-link to="/">
-            <img src="@/assets/report.svg" alt="Register User" />
-            <h2 class="titulo">Extrair relatório</h2>
-            <p>Extrai relatório de usuários</p>
-          </router-link>
-        </div>
-        <div class="dashboard">
-          <router-link to="/">
-            <img src="@/assets/touch.svg" alt="Register User" />
-            <h2 class="titulo">Presença</h2>
-            <p>Faz controle de presença manual</p>
-          </router-link>
-        </div>
-        <div class="dashboard">
-          <router-link to="/">
-            <img src="@/assets/bmi.svg" alt="Register User" />
-            <h2 class="titulo">Cálculo IMC</h2>
-            <p>Realiza cálculo de IMC</p>
+          <router-link to="/lista-clientes">
+            <img src="@/assets/clients.svg" alt="Clientes" />
+            <h2 class="titulo">Clientes</h2>
+            <p>Lista Clientes</p>
           </router-link>
         </div>
         <div class="dashboard">

@@ -6,8 +6,12 @@ import Usuario from '../views/usuario/Usuario.vue'
 import Dashboard from '../views/Dashboard.vue'
 import CadastrarCliente from '../views/CadastrarCliente.vue'
 import CadastrarFuncionario from '../views/CadastrarFuncionario.vue'
+import CadastrarPlanos from '../views/CadastrarPlanos.vue'
 import Produtos from '../views/Produtos.vue'
+import ListaClientes from '../views/ListaClientes.vue'
 import EditarUsuario from '../views/usuario/EditarUsuario.vue'
+import Produto from '../views/Produto.vue'
+import Cliente from '../views/Cliente.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +43,11 @@ const routes = [
     component: Dashboard
   },
   {
+    path: '/lista-clientes',
+    name: 'lista-clientes',
+    component: ListaClientes
+  },
+  {
     path: '/cadastro-cliente',
     name: 'cadastro-cliente',
     component: CadastrarCliente
@@ -49,9 +58,26 @@ const routes = [
     component: CadastrarFuncionario
   },
   {
+    path: '/cadastro-plano',
+    name: 'cadastro-plano',
+    component: CadastrarPlanos
+  },
+  {
     path: '/produtos',
     name: 'produtos',
     component: Produtos
+  },
+  {
+    path: '/produto/:id',
+    name: 'produto',
+    component: Produto,
+    props: true
+  },
+  {
+    path: '/cliente/:id',
+    name: 'cliente',
+    component: Cliente,
+    props: true
   },
 ]
 
